@@ -1,0 +1,11 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8081:80"
+  varnish:
+    build: ./varnish
+    links:
+      - nginx
+    ports:
+      - "8088:80"
